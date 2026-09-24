@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cartão de Visitas Digital</title>
+    <style>
+        :root {
+            --bg-color: #f4f7f6;
+            --card-bg: #ffffff;
+            --primary-color: #1a2a3a;
+            --accent-color: #c9a063;
+            --text-main: #333333;
+            --text-muted: #666666;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-color);
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .card-container {
+            width: 100%;
+            max-width: 450px;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        .business-card {
+            background: var(--card-bg);
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            overflow: hidden;
+            position: relative;
+            transition: transform 0.3s ease;
+        }
+
+        .card-header-bar {
+            height: 8px;
+            background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+        }
+
+        .card-body {
+            padding: 35px 30px;
+        }
+
+        .profile-section {
+            display: flex;
+            align-items: center;
+            margin-bottom: 25px;
+        }
+
+        .avatar-placeholder {
+            width: 70px;
+            height: 70px;
+            background-color: #e2e8f0;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-right: 20px;
+            border: 2px solid var(--accent-color);
+            color: var(--primary-color);
+            font-weight: bold;
+            font-size: 1.5rem;
+        }
+
+        .identity {
+            flex: 1;
+        }
+
+        .name-field {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin: 0 0 4px 0;
+            border-bottom: 1px dashed #e2e8f0;
+            padding-bottom: 4px;
+        }
+
+        .title-field {
+            font-size: 0.9rem;
+            color: var(--accent-color);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin: 0;
+            font-weight: 600;
+        }
+
+        .shapes-section {
+            background: #fafbfc;
+            border-radius: 12px;
+            padding: 15px;
+            margin-bottom: 25px;
+            border: 1px solid #edf2f7;
+        }
+
+        .shapes-title {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            margin-0-0-10px-0: 0 0 10px 0;
+            letter-spacing: 0.5px;
+            font-weight: 600;
+        }
+
+        .shapes-grid {
+            display: flex;
+            gap: 15px;
+            justify-content: flex-start;
+            align-items: center;
+        }
+
+        .shape-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            font-size: 0.75rem;
+            color: var(--text-muted);
+        }
+
+        .geometric-shape {
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 6px;
+            transition: transform 0.2s;
+        }
+
+        .geometric-shape:hover {
+            transform: scale(1.1);
+        }
+
+        .shape-circle {
+            background-color: var(--primary-color);
+            border-radius: 50%;
+        }
+
+        .shape-square {
+            background-color: var(--accent-color);
+            border-radius: 6px;
+        }
+
+        .shape-triangle {
+            width: 0;
+            height: 0;
+            border-left: 20px solid transparent;
+            border-right: 20px solid transparent;
+            border-bottom: 40px solid var(--primary-color);
+            background-color: transparent;
+        }
+
+        .message-section {
+            position: relative;
+            padding-left: 15px;
+            border-left: 3px solid var(--accent-color);
+        }
+
+        .message-text {
+            font-size: 0.95rem;
+            color: var(--text-main);
+            line-height: 1.6;
+            font-style: italic;
+            margin: 0;
+        }
+
+        .card-footer {
+            background: #f8fafc;
+            padding: 15px 30px;
+            text-align: center;
+            border-top: 1px solid #edf2f7;
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="card-container">
+        <div class="business-card">
+            <div class="card-header-bar"></div>
+            
+            <div class="card-body">
+                <!-- Seção: Nome -->
+                <div class="profile-section">
+                    <div class="avatar-placeholder" id="avatarInitials">Seu Nome</div>
+                    <div class="identity">
+                        <h1 class="name-field" contenteditable="true">Seu Nome Aqui</h1>
+                        <p class="title-field" contenteditable="true">Sua Profissão / Cargo</p>
+                    </div>
+                </div>
+
+                <!-- Seção: Figuras -->
+                <div class="shapes-section">
+                    <div class="shapes-title">Figuras / Elementos Visuais</div>
+                    <div class="shapes-grid">
+                        <div class="shape-item">
+                            <div class="geometric-shape shape-circle"></div>
+                            <span>Círculo</span>
+                        </div>
+                        <div class="shape-item">
+                            <div class="geometric-shape shape-square"></div>
+                            <span>Quadrado</span>
+                        </div>
+                        <div class="shape-item">
+                            <div class="geometric-shape shape-triangle"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Seção: Mensagem -->
+                <div class="message-section">
+                    <p class="message-text" contenteditable="true">
+                        "Insira aqui a mensagem principal do seu cartão, lema profissional ou descrição curta dos seus serviços."
+                    </p>
+                </div>
+            </div>
+
+            <div class="card-footer">
+                Clique nos textos para editá-los diretamente
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Atualiza as iniciais do avatar com base no nome digitado
+        const nameField = document.querySelector('.name-field');
+        const avatar = document.getElementById('avatarInitials');
+
+        function updateInitials() {
+            const name = nameField.innerText.trim();
+            if (name) {
+                const words = name.split(' ');
+                const initials = words.map(w => w[0]).join('').substring(0, 2).toUpperCase();
+                avatar.innerText = initials;
+            } else {
+                avatar.innerText = "";
+            }
+        }
+
+        nameField.addEventListener('input', updateInitials);
+        updateInitials(); // Inicialização
+    </script>
+</body>
+</html>
